@@ -5,25 +5,275 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" media="all">
     <title>Arbeidskrav 2 UIN</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {    
+    --black: #000000;
+    --dark: #0f374c;
+    --medium: #3a6176;
+    --light: #aac5d4;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--black);
+    font-size: 1.2rem;
+}
+
+#container {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+header {
+    display: grid;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 5rem;
+    position: relative;
+}
+
+header button {
+    width: 100%;
+    background-color: var(--dark);
+    color: var(--white);
+    border-style: none;
+    cursor: pointer;
+    position: relative;
+    padding: 1.5rem 3.5rem;
+}
+
+header button:hover {
+    background-color: var(--medium);
+}
+
+header button:active {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.category {
+    font-size: 1rem;
+}
+
+/* main */
+main {
+    background-color: var(--white);
+    padding: 3rem;
+    border-bottom: 1.4rem solid var(--light);
+}
+main h2 {
+    padding-bottom: 1rem;
+}
+main ul {
+    color: var(--medium);
+    text-decoration: underline;
+}
+
+#sources {
+    padding: 1rem 3rem;
+}
+    </style>
 </head>
-<body>
+<body>  
+    <div id="container">            
     <header>
-        <nav>
-            <ul>
-                <li><button><h2 id="categoty">html</h2></button></li>
-            </ul>            
-        </nav>
+        <ul id="header-list">
+            <!-- <li><button><h2 class="category">HTML</h2></button></li>
+            <li><button><h2 class="category">fe</h2></button></li>
+            <li><button><h2 class="category">fet</h2></button></li>
+            <li><button><h2 class="category">fed</h2></button></li>
+            <li><button><h2 class="category">Sanity and headless CMS</h2></button></li> -->
+        </ul>  
     </header>
-    <main>
-        <h2>html</h2>
-        <p id="text">HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
-        <ul id="sources">
-            <li>sdfghjkl</li>
-            <li>sdfghjkl</li>
-            <li>sdfghjkl</li>
-        </ul>
-    </main>
-    
-    <script src="ressurser.js"></script>
+        <main>
+            <!-- <article>
+                <h2>HTML</h2>
+                <p id="text">HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
+                <ul id="sources">
+                    <li>sdfghjkl</li>
+                    <li>sdfghjkl</li>
+                    <li>sdfghjkl</li>
+                </ul>
+            </article> -->
+        </main>
+    </div>
+    <script src="ressurser.js">
+        const resources = [
+    {
+        category: "HTML",
+        text: "HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.",
+        sources: [
+            {
+                title: "W3Schools",
+                url: "https://www.w3schools.com/html/"
+            },
+            {
+                title: "HTML Living standard",
+                url: "https://html.spec.whatwg.org/multipage/"
+            },
+            {
+                title: "HTML.com Tutorials",
+                url: "https://html.com/"
+            },
+        ]
+    },
+    {
+        category: "CSS",
+        text: "CSS står for Cascading StyleSheets, og brukes for å sette stilregler på HTML-elementer.",
+        sources: [
+            {
+                title: "W3Schools",
+                url: "https://www.w3schools.com/css/"
+            },
+            {
+                title: "W3C HTML & CSS Standards",
+                url: "https://www.w3.org/standards/webdesign/htmlcss.html"
+            },
+            {
+                title: "W3C CSS Validator",
+                url: "https://jigsaw.w3.org/css-validator/"
+            },
+            {
+                title: "CSS Tricks",
+                url: "https://css-tricks.com/"
+            },
+        ]
+    },
+    {
+        category: "JavaScript",
+        text: "JavaScript er et scriptspråk basert på EcmaScript. JavaScript kjører direkte i nettleseren, og brukes ofte til å manipulere HTML og CSS i webgrensnesnitt.",
+        sources: [
+            {
+                title: "W3Schools",
+                url: "https://www.w3schools.com/js/"
+            },
+            {
+                title: "MDN Web Docs",
+                url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            },
+            {
+                title: "How to read JavaScript Documentation",
+                url: "https://www.youtube.com/watch?v=O3iR-CIufKM"
+            },
+        ]
+    },
+    {
+        category: "React",
+        text: "React er et rammeverk bygget i JavaScript. React bruker komponenter og states for å lage en levende frontend.",
+        sources: [
+            {
+                title: "React documentation",
+                url: "https://reactjs.org/docs/getting-started.html"
+            },
+            {
+                title: "W3Schools",
+                url: "https://www.w3schools.com/REACT/DEFAULT.ASP"
+            },
+            {
+                title: "How to read JavaScript Documentation",
+                url: "https://www.youtube.com/watch?v=O3iR-CIufKM"
+            },
+        ]
+    },
+    {
+        category: "Sanity and headless CMS",
+        text: "Sanity er et headless CMS som står for innholdsadministrasjon. Innhold hentes inn i applikasjoner via GROQ-spørringer.",
+        sources: [
+            {
+                title: "Sanity documentation",
+                url: "https://www.sanity.io/docs"
+            },
+            {
+                title: "OnCrawl: a beginners guide to headless CMS",
+                url: "https://www.oncrawl.com/technical-seo/beginners-guide-headless-cms/"
+            },
+            {
+                title: "Section.io: Getting started with Sanity CMS",
+                url: "https://www.section.io/engineering-education/getting-started-with-sanity-cms/"
+            },
+        ]
+    },
+]
+    </script>
+    <script>
+        
+        const headerList = document.getElementById("header-list")
+
+        resources.forEach(resource => {
+            const li = document.createElement("li");
+            const button = document.createElement("button");
+            button.innerHTML = `<h2 class="category">${resource.category}</h2>`
+            li.appendChild(button)
+            headerList.appendChild(li)
+        })
+
+        let info = ""
+
+        resources.map(content => {info += 
+            `<article>
+                <h2>${content.category}</h2>
+                <p id="text">${content.text}</p>
+                <ul>`
+                    //For å liste opp de forskjellige linkene
+                content.sources.forEach(source => {
+                    info += `<li><a href="${source.url}">${source.title}</a></li>`
+                })
+                    
+                info += `</ul></article>`
+        })
+
+        const main = document.getElementsByTagName("main")
+        main[0].innerHTML = info
+        
+
+        // if(main === category) {
+
+        // }
+
+        headerList.addEventListener('click', function(event) {
+            if (event.target.tagName === 'BUTTON') {
+                // Clear previous content in main
+                main[0].innerHTML = '';
+
+                // Get the category from the clicked button's text content
+                const clickedCategory = event.target.textContent.trim();
+
+                // Find the corresponding resource and update the main content
+                const clickedResource = resources.find(resource => resource.category === clickedCategory);
+
+                if (clickedResource) {
+                    main[0].innerHTML = `
+                        <article>
+                            <h2>${clickedResource.category}</h2>
+                            <p id="text">${clickedResource.text}</p>
+                            <ul>
+                                ${clickedResource.sources.map(source => `<li><a href="${source.url}">${source.title}</a></li>`).join('')}
+                            </ul>
+                        </article>
+                    `;
+                }
+            }
+        })
+    </script>
 </body>
 </html>
