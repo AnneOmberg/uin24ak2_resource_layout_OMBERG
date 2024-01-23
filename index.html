@@ -92,6 +92,8 @@ main ul {
 #sources {
     padding: 1rem 3rem;
 }
+
+
     </style>
 </head>
 <body>  
@@ -219,17 +221,34 @@ main ul {
         
         const headerList = document.getElementById("header-list")
 
+        // function btnColor() {
+        //     let cate = `<li><button class="category">HTML</button></li>`
+
+        //     resources.forEach(resource => {
+                
+        //     })(res => {
+        //         cate += `<li><button class="category">${res.category}</button></li>`
+        //     })
+        
+        // document.getElementById("header-list").innerHTML = cate
+        // console.log(headerList)
+        // }
         resources.forEach(resource => {
-            const li = document.createElement("li");
-            const button = document.createElement("button");
-            button.innerHTML = `<h2 class="category">${resource.category}</h2>`
-            li.appendChild(button)
-            headerList.appendChild(li)
-        })
+             const li = document.createElement("li");
+             const button = document.createElement("button")
+             button.innerHTML = `<h2 class="category">${resource.category}</h2>`
+             li.appendChild(button)
+             headerList.appendChild(li)
+         })
+
+//
+         //classList toggle til knappene
+        // forloop istedenfor map
+        //bruke js endre css til active
 
         let info = ""
 
-        resources.map(content => {info += 
+        resources.map(content => {info = 
             `<article>
                 <h2>${content.category}</h2>
                 <p id="text">${content.text}</p>
