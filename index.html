@@ -33,7 +33,7 @@ body {
     display: grid;
     justify-content: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -46,21 +46,28 @@ header {
     position: relative;
 }
 
-header button {
+button {
     width: 100%;
     background-color: var(--dark);
     color: var(--white);
     border-style: none;
     cursor: pointer;
     position: relative;
-    padding: 1.5rem 3.5rem;
+    padding: 2rem 4rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
 }
 
 header button:hover {
     background-color: var(--medium);
 }
 
-header button:active {
+/*header button:active {
+    background-color: var(--white);
+    color: var(--black);
+}*/
+
+.active {
     background-color: var(--white);
     color: var(--black);
 }
@@ -80,6 +87,7 @@ main {
     background-color: var(--white);
     padding: 3rem;
     border-bottom: 1.4rem solid var(--light);
+    width: 1200px;
 }
 main h2 {
     padding-bottom: 1rem;
@@ -87,11 +95,10 @@ main h2 {
 main ul {
     color: var(--medium);
     text-decoration: underline;
+    padding: 2rem 4rem;
 }
 
-#sources {
-    padding: 1rem 3rem;
-}
+
 
 
     </style>
@@ -218,9 +225,6 @@ main ul {
 ]
     </script>
     <script>
-        
-        const headerList = document.getElementById("header-list")
-
         // function btnColor() {
         //     let cate = `<li><button class="category">HTML</button></li>`
 
@@ -233,14 +237,44 @@ main ul {
         // document.getElementById("header-list").innerHTML = cate
         // console.log(headerList)
         // }
-        resources.forEach(resource => {
-             const li = document.createElement("li");
-             const button = document.createElement("button")
-             button.innerHTML = `<h2 class="category">${resource.category}</h2>`
-             li.appendChild(button)
-             headerList.appendChild(li)
-         })
 
+        // The container where the buttons will be added
+        const headerList = document.getElementById("header-list")
+        
+        // No buttons is activated when the page loads
+        let currActiveButton = null
+        // Function to create buttons by theme and toggle said buttons
+        resources.forEach(resource => {
+            
+            // Creating a list for the button
+            const li = document.createElement("li");
+            
+            // Creating the buttons
+            const button = document.createElement("button")
+            button.innerHTML = `${resource.category}`
+
+            // Appending buttons to list-element
+            li.appendChild(button)
+
+            // Appending list-element to container
+            headerList.appendChild(li)
+
+            // Toggle buttons
+            button.addEventListener('click', function() {
+                // If there's a currently active button, deactivate it
+                if (currActiveButton) {
+                    currActiveButton.classList.toggle('active')
+                }
+                // Toggle the "active" class on the clicked button
+                button.classList.toggle('active')
+
+                // Update the currently active button
+                currActiveButton = button             
+            })
+
+        })
+
+         
 //
          //classList toggle til knappene
         // forloop istedenfor map
@@ -258,12 +292,13 @@ main ul {
                     info += `<li><a href="${source.url}">${source.title}</a></li>`
                 })
                     
-                info += `</ul></article>`
+                info = `</ul></article>`
         })
+
+        
 
         const main = document.getElementsByTagName("main")
         main[0].innerHTML = info
-        
 
         // if(main === category) {
 
@@ -292,6 +327,8 @@ main ul {
                     `;
                 }
             }
+
+            
         })
     </script>
 </body>
