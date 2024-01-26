@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -7,71 +7,119 @@
     box-sizing: border-box;
 }
 
+/* Valgte egne farger */
 :root {    
     --black: #000000;
-    --dark: #0f374c;
-    --medium: #3a6176;
-    --light: #aac5d4;
+    --dark: #103b43;
+    --medium: #306b86;
+    --light: #d0e2e5;
     --white: #ffffff;
 }
 
 body {
     background-color: var(--light);
     color: var(--black);
+    font-size: 1.2rem;
 }
 
 #container {
     display: grid;
     justify-content: center;
-    align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: var(--white);
-}
-
-/* h2 {
-    text-transform: uppercase;
-} */
-
-/* main {
-    background-color: var(--white);
-    padding: 3rem;
 }
 
 /* header */
-/* header {
+header {
     display: grid;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
     width: 100%;
-    max-width: 1200px;
-    padding: 0;
     padding-top: 5rem;
     position: relative;
 }
 
-header button {
+button {
+    width: 100%;
     background-color: var(--dark);
     color: var(--white);
     border-style: none;
     cursor: pointer;
     position: relative;
-    padding: 2rem 4rem; */
-/* transition: background-color var(--medium) 0.3s; */
-/* }
+    padding: 2rem 4rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
 
-header button:hover {
-    background-color: var(--medium);
+.active {
+    background-color: var(--white);
+    color: var(--black);
 }
 
 header ul {
     display: flex;
-    margin: 0 auto;
+    justify-content: space-between;
     list-style-type: none;
 }
 
-header ul li {
-    justify-content: space-evenly;
-}  */
+.category {
+    font-size: 1rem;
+}
+
+/* main */
+main {
+    background-color: var(--white);
+    padding: 3rem;
+    border-bottom: 1.4rem solid var(--light);
+    width: 1200px;
+}
+main h2 {
+    padding-bottom: 1rem;
+}
+main ul {
+    color: var(--medium);
+    text-decoration: underline;
+    padding: 2rem 4rem;
+}
+
+a{
+    color: var(--medium);
+}
+
+/* for mindre skjermer/tablets */
+@media screen and (max-width: 1199px){
+    #container{
+        width: 1000px;
+        padding: 0 2rem;
+    }
+    button{
+        font-size: 1rem;
+        padding: 2rem 3rem;
+    }
+    main{
+        width: 1000px;
+    }
+}
+
+
+/* for smarttelefoner */
+@media only screen and (max-width: 599px){
+
+    #container{
+        padding: 0;
+        margin: 1rem 0;
+        position: absolute;
+        justify-content: center;
+    }
+    #header-list{
+        display: block;
+        width: 100%;
+        
+    }
+    button{
+        margin: 0 0 1rem 0;
+        padding: 3rem 2rem;
+        font-size: 2rem;
+    }
+
+}
